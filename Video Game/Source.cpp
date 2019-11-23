@@ -8,11 +8,7 @@ using namespace std;
 
 int main() {
 	Planet p;
-	Planet pp;
-	Planet ppp;
-	System s;
-	System ss;
 
-	cout << p.getPlanetName() << " " << pp.getPlanetName() << " " << ppp.getPlanetName();
+	cout << p.getPlanetName() << " " << p.getPlanetType();
 	return 0;
 }
