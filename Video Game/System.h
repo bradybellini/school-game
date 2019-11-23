@@ -11,7 +11,8 @@ private:
 
 public:
 
-	void addPlanets(Planet planets);
+	void addPlanets(Planet* planet);
+	Planet* selectPlanet(int i);
 };
 
 #endif // !SYSTEM_H
