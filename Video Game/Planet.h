@@ -1,13 +1,16 @@
 #pragma once
 #ifndef PLANET_H
 
+#include "PlanetName.h"
+#include <iostream>
 #include <string>
 
 class Planet {
 private:
 	std::string planetType, planetEnvironment, planetName;
 	int planetSize, planetDifficulty;
-	std::string generateName();
+	PlanetName name;
+	/*std::string generateName();*/
 
 public:
 	Planet();
