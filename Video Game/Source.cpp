@@ -12,7 +12,7 @@ int main() {
 	Planet ppp;
 	System s;
 	System ss;
-	cout << s.selectPlanet(2)->getPlanetName() << endl;
+
 	cout << p.getPlanetName() << " " << pp.getPlanetName() << " " << ppp.getPlanetName();
 	return 0;
 }
