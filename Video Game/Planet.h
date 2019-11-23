@@ -10,7 +10,6 @@ private:
 	std::string planetType, planetEnvironment, planetName;
 	int planetSize, planetDifficulty;
 	PlanetName name;
-	/*std::string generateName();*/
 
 public:
 	Planet();
@@ -22,6 +21,7 @@ public:
 	std::string getPlanetEnvironment();
 	void setPlanetName(std::string n);
 	std::string getPlanetName();
+	void generatePlanet();
 };
 
 #endif // !PLANET_H
