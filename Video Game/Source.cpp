@@ -8,7 +8,7 @@ using namespace std;
 
 int main() {
 	Planet p;
-
+	p.setPlanetType();
 	cout << p.getPlanetName() << " " << p.getPlanetType();
 	return 0;
 }
