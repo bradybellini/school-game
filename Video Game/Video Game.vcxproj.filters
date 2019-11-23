@@ -23,7 +23,7 @@
     <ClInclude Include="Weapons.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Planet.h">
+    <ClInclude Include="Planets.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
