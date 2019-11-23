@@ -2,12 +2,12 @@
 #ifndef PLANET_H
 
 #include <string>
-#include <vector>
 
 class Planet {
 private:
 	std::string planetType, planetEnvironment, planetName;
 	int planetSize, planetDifficulty;
+	std::string generateName();
 
 public:
 	Planet();
