@@ -27,6 +27,12 @@
     <ClCompile Include="PlanetName.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Moon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlanetType.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Weapons.h">
@@ -42,6 +48,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PlanetName.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Moon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PlanetType.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

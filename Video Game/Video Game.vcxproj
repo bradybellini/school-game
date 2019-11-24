@@ -123,8 +123,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Moon.cpp" />
     <ClCompile Include="Planet.cpp" />
     <ClCompile Include="PlanetName.cpp" />
+    <ClCompile Include="PlanetType.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="System.cpp" />
   </ItemGroup>
@@ -133,6 +135,7 @@
     <ClInclude Include="Name.h" />
     <ClInclude Include="Planet.h" />
     <ClInclude Include="PlanetName.h" />
+    <ClInclude Include="PlanetType.h" />
     <ClInclude Include="System.h" />
     <ClInclude Include="Weapons.h" />
   </ItemGroup>
