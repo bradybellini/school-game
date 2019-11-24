@@ -7,7 +7,7 @@
 
 class Planet {
 private:
-	std::string planetType, planetEnvironment, planetName;
+	std::string planetType, planetEnvironment;
 	int planetSize, planetDifficulty;
 	PlanetName name;
 
