@@ -32,7 +32,6 @@ std::string PlanetName::generateName()
 		c = 'a' + r;
 	}
 
-	//std::transform(greekletter.begin(), greekletter.end(), greekletter.begin(), ::toupper);
 	std::string cc(1, c);
 	std::transform(cc.begin(), cc.end(), cc.begin(), ::toupper);
 
