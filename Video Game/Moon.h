@@ -1,15 +1,15 @@
 #pragma once
 #ifndef MOON_H
 
-#include <string>
+#include "Planet.h"
 
-class Moon {
+class Moon : public Planet {
 private:
-	int damageMod;
+	int cold;
 public:
 	Moon();
-	void setDamageMod(int d);
-	int getDamageMod();
+	void setCold(int c);
+	int getCold();
 };
 
 #endif // !MOON_H
