@@ -7,21 +7,15 @@
 
 class Planet {
 private:
-	std::string planetType, planetEnvironment;
-	int planetSize, planetDifficulty;
 	PlanetName name;
+	std::string planetType;
 
 public:
 	Planet();
-	void setPlanetType(std::string t);
-	std::string getPlanetType();
-	int getPlanetSize();
-	void setPlanetSize(int s);
-	void setPlanetEnvironment(std::string e);
-	std::string getPlanetEnvironment();
 	void setPlanetName(std::string n);
 	std::string getPlanetName();
-	void generatePlanet();
+	void setPlanetType(std::string t);
+	std::string getPlanetType();
 };
 
 #endif // !PLANET_H
