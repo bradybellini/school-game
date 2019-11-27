@@ -1,19 +1,20 @@
 #pragma once
-#ifndef PLANETTYPE_H
+#ifndef Modifiers _H
 
 #include <string>
 
-class PlanetType {
+class Modifiers {
 private:
-	int resistanceModifier;
-	std::string environmentType;
+	int modifier;
+	std::string name;
 public:
-	PlanetType();
-	void setResistanceModifier(int d);
-	int getResistanceModifier();
-	void setEnvironmentType(std::string e);
-	std::string getEnvironmentType();
+	Modifiers(int m, std::string name);
+	void setModifier(int m);
+	int getModifier();
+	void setName(std::string n);
+	std::string getName();
+
 };
 
 
-#endif // !PLANETTYPE_H
+#endif // !Modifiers _H

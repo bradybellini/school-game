@@ -123,19 +123,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Moon.cpp" />
+    <ClCompile Include="Forrest.cpp" />
+    <ClCompile Include="Mod.cpp" />
     <ClCompile Include="Planet.cpp" />
     <ClCompile Include="PlanetName.cpp" />
-    <ClCompile Include="PlanetType.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="System.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Moon.h" />
-    <ClInclude Include="Name.h" />
+    <ClInclude Include="Forrest.h" />
+    <ClInclude Include="Mod.h" />
     <ClInclude Include="Planet.h" />
     <ClInclude Include="PlanetName.h" />
-    <ClInclude Include="PlanetType.h" />
     <ClInclude Include="System.h" />
     <ClInclude Include="Weapons.h" />
   </ItemGroup>

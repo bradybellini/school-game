@@ -27,10 +27,10 @@
     <ClCompile Include="PlanetName.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Moon.cpp">
+    <ClCompile Include="Mod.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="PlanetType.cpp">
+    <ClCompile Include="Forrest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,16 +44,13 @@
     <ClInclude Include="System.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Name.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="PlanetName.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Moon.h">
+    <ClInclude Include="Forrest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="PlanetType.h">
+    <ClInclude Include="Mod.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
