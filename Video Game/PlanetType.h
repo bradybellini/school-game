@@ -14,6 +14,6 @@ public:
 	void setEnvironmentType(std::string e);
 	std::string getEnvironmentType();
 };
-};
+
 
 #endif // !PLANETTYPE_H
