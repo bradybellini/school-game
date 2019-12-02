@@ -13,7 +13,8 @@ int main() {
 	Forrest f;
 	System s;
 	s.addPlanets(&Planet());
-	cout << s.selectPlanet(0)->getPlanetName() << endl;
+	s.selectPlanet(0)->setPlanetName("cool");
+		cout << s.selectPlanet(0)->getPlanetName() << endl;
 	//cout << f.getPlanetType() << endl;
 	//cout << f.getPlanetName() << endl;
 
