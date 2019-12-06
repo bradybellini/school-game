@@ -2,7 +2,6 @@
 
 Planet::Planet()
 {
-
 }
 
 void Planet::setPlanetName(std::string n)
@@ -23,4 +22,8 @@ void Planet::setPlanetType(std::string t)
 std::string Planet::getPlanetType()
 {
 	return planetType;
+}
+
+Planet::~Planet()
+{
 }

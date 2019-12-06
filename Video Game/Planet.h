@@ -16,8 +16,7 @@ public:
 	std::string getPlanetName();
 	void setPlanetType(std::string t);
 	std::string getPlanetType();
-
-
+	virtual ~Planet();
 };
 
 #endif // !PLANET_H
