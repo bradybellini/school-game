@@ -9,6 +9,8 @@ class Planet {
 private:
 	PlanetName name;
 	std::string planetType;
+	int difficulty;
+
 
 public:
 	Planet();

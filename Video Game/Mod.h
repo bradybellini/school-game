@@ -9,6 +9,7 @@ class Mod{
 private:
 	int mod;
 	std::string name;
+	bool livable = true;
 public:
 	Mod();
 	Mod(int m, std::string n);
@@ -16,6 +17,8 @@ public:
 	int getMod();
 	void setName(std::string n);
 	std::string getName();
+	bool getlivable();
+	void setLivable(bool l);
 
 };
 

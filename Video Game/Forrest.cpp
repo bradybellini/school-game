@@ -4,6 +4,7 @@ Forrest::Forrest()
 {
 	thick_atmo.setMod(2);
 	thick_atmo.setName("Thick Atmosphere");
+	thick_atmo.setLivable(false);
 	o2_rich.setMod(2);
 	o2_rich.setName("Oxygen Rich");
 	setPlanetType("Forrest");

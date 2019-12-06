@@ -32,3 +32,13 @@ std::string Mod::getName()
 	return name;
 }
 
+bool Mod::getlivable()
+{
+	return livable;
+}
+
+void Mod::setLivable(bool l)
+{
+	bool livable = l;
+}
+
