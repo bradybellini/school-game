@@ -7,6 +7,8 @@ Forrest::Forrest()
 	o2_rich.setMod(2);
 	o2_rich.setName("Oxygen Rich");
 	setPlanetType("Forrest");
+	mods.push_back(&o2_rich);
+	mods.push_back(&thick_atmo);
 }
 
 void Forrest::addMod(Mod* m)
@@ -18,5 +20,6 @@ Mod* Forrest::getMod(int i)
 {
 	return mods[i];
 }
+
 
 

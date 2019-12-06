@@ -2,6 +2,7 @@
 #ifndef SYSTEM_H
 
 #include "Planet.h"
+#include "Forrest.h"
 #include <string>
 #include <vector>
 

@@ -2,6 +2,7 @@
 #ifndef MOD_H
 
 #include <string>
+#include <vector>
 
 
 class Mod{
