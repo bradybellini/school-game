@@ -8,10 +8,14 @@
 class Alien : public Character {
 private:
 	std::vector<std::string> taunts;
+
 	
 
 public:
 	Alien();
+	std::string taunt(), getTaunt(int t);
+	void addTaunt(std::string t);
+
 
 };
 
