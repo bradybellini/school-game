@@ -7,7 +7,8 @@ private:
 
 public:
 	Character();
-	void setHealth(int h), setAttack(int a), setResistance(int r);
+	void setHealth(int h), setAttack(int a), setResistance(int r), 
+		takeDamage(int t), addHealth(int ah);
 	int getHealth(), getAttack(), getResistance();
 	virtual ~Character();
 
