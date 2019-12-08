@@ -123,29 +123,37 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Alien.cpp" />
+    <ClCompile Include="Blaster.cpp" />
     <ClCompile Include="Character.cpp" />
     <ClCompile Include="Forrest.cpp" />
+    <ClCompile Include="Inventory.cpp" />
+    <ClCompile Include="Item.cpp" />
     <ClCompile Include="Mod.cpp" />
     <ClCompile Include="Ocean.cpp" />
     <ClCompile Include="Planet.cpp" />
     <ClCompile Include="PlanetName.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="System.cpp" />
+    <ClCompile Include="Weapons.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Alien.h" />
     <ClInclude Include="Arctic.h" />
+    <ClInclude Include="Blaster.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="Desert.h" />
     <ClInclude Include="Exo.h" />
     <ClInclude Include="Forrest.h" />
-    <ClInclude Include="ForrestMaker.h" />
+    <ClInclude Include="Inventory.h" />
+    <ClInclude Include="Item.h" />
     <ClInclude Include="Magma.h" />
-    <ClInclude Include="Maker.h" />
     <ClInclude Include="Mod.h" />
     <ClInclude Include="Ocean.h" />
     <ClInclude Include="Planet.h" />
     <ClInclude Include="PlanetName.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="System.h" />
     <ClInclude Include="Weapons.h" />
   </ItemGroup>
