@@ -12,6 +12,21 @@ void Character::setHealth(int h)
 	health = h;
 }
 
+void Character::addHealth(int ah)
+{
+	health += ah;
+}
+
+void Character::takeDamage(int t)
+{
+	if (t > health) {
+		health = 0;
+	}
+	else {
+		health -= t;
+	}
+}
+
 void Character::setAttack(int a)
 {
 	attack = a;
