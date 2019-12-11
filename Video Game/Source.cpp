@@ -14,13 +14,13 @@
 
 using namespace std;
 
-
-void game_easy();
+void game_easy(string n);
+void game_med(string n);
+void game_hard(string n);
+void load_game();
 Player p;
 
 int main() {
-
-
 	//all variables needed for main
 	///////////////////////////////////
 	bool quit = false;
@@ -64,7 +64,7 @@ int main() {
 
 	cout << endl;
 
-	while(!setname) {
+	while (!setname) {
 		cout << "Please enter a name for your character" << endl;
 		cin >> name;
 		p.setName(name);
@@ -99,7 +99,6 @@ int main() {
 			break;
 		default: cout << "Please pick from one of the options above" << endl;
 			break;
-
 		}
 	}
 
@@ -153,52 +152,55 @@ int main() {
 
 	difficulty = 1;
 	if (difficulty == 1) {
-	game_easy();
+		game_easy(name);
 	}
-	
+	else if (difficulty == 2) {
+		game_med(name);
+	}
+	else {
+		game_hard(name);
+	}
+	//cout << b.getNewPrice();
+	//for (int i = 0; i < p.getInvSize(); i++) {
+	//	if (Blaster * b_temp = dynamic_cast<Blaster*>(p.getItem(i))) {
+	//		cout << b_temp->getName() << endl;
+	//	}
+	//	else {
+	//		cout << "did not work" << endl;
+	//	}
+	//}
+	//cout << a.getHealth() << endl;
+	//a.takeDamage(b.giveDamage());
+	//cout << a.getHealth() << endl;
 
-	
+	////cout << f.getMod(0)->getName()<< endl;
+	//s.addPlanets(&f);
+	//s.addPlanets(&o);
+	//s.selectPlanet(0)->getEnemy(3)->takeDamage(b.giveDamage());
+	//cout << s.selectPlanet(0)->getEnemy(3)->getHealth() << endl;
 
-//cout << b.getNewPrice();
-//for (int i = 0; i < p.getInvSize(); i++) {
-//	if (Blaster * b_temp = dynamic_cast<Blaster*>(p.getItem(i))) {
-//		cout << b_temp->getName() << endl;
-//	}
-//	else {
-//		cout << "did not work" << endl;
-//	}
-//}
-//cout << a.getHealth() << endl;
-//a.takeDamage(b.giveDamage());
-//cout << a.getHealth() << endl;
+	///*s.selectPlanet(0)->setPlanetName("cool");*/
+	//cout << s.selectPlanet(0)->getPlanetName() << endl;
+	//for (int i = 0; i < s.getSystemSize(); i++) {
+	//	if (Forrest* f_temp = dynamic_cast<Forrest*>(s.selectPlanet(i))) {
+	//		cout << f_temp->getMod(0)->getEn<< endl;
+	//	}
+	//	else if (Ocean* o_temp = dynamic_cast<Ocean*>(s.selectPlanet(i))) {
+	//		cout << o_temp->getMod(0)->getMod() << endl;
+	//	}
+	//	else {
+	//		cout << "did not work" << endl;
+	//	}
 
-////cout << f.getMod(0)->getName()<< endl;
-//s.addPlanets(&f);
-//s.addPlanets(&o);
-//s.selectPlanet(0)->getEnemy(3)->takeDamage(b.giveDamage());
-//cout << s.selectPlanet(0)->getEnemy(3)->getHealth() << endl;
-
-///*s.selectPlanet(0)->setPlanetName("cool");*/
-//cout << s.selectPlanet(0)->getPlanetName() << endl;
-//for (int i = 0; i < s.getSystemSize(); i++) {
-//	if (Forrest* f_temp = dynamic_cast<Forrest*>(s.selectPlanet(i))) {
-//		cout << f_temp->getMod(0)->getEn<< endl;
-//	}
-//	else if (Ocean* o_temp = dynamic_cast<Ocean*>(s.selectPlanet(i))) {
-//		cout << o_temp->getMod(0)->getMod() << endl;
-//	}
-//	else {
-//		cout << "did not work" << endl;
-//	}
-
-		
-//}
+	//}
 
 	return 0;
 }
 
-void game_easy() {
+void game_easy(string n) {
+	
 	int x;
+	cout<<p.getName();
 	bool easy = false;
 	while (!easy) {
 		cout << "This is a test" << endl;
@@ -206,7 +208,7 @@ void game_easy() {
 		cin >> x;
 		switch (x) {
 		case 1: cout << "You have chosen Easy, have fun!" << endl;
-
+			break;
 		case 2: cout << "You have chosen Medium, good luck!" << endl;
 			easy = true;
 			break;
@@ -216,5 +218,14 @@ void game_easy() {
 		default: cout << "Please pick from one of the options above" << endl;
 		}
 	}
+}
 
+void game_med(string n) {
+	
+
+}
+
+void game_hard(string n) {
+
+	
 }
