@@ -15,9 +15,10 @@ bool Blaster::getHit()
 
 Blaster::Blaster()
 {
-	accuracy = 10;
+	accuracy = 20;
 	setName("Blaster");
 	setDamage(10);
+
 }
 
 double Blaster::getAccuracy()
@@ -30,6 +31,11 @@ void Blaster::setAccuracy(int a)
 	accuracy = a;
 }
 
+void Blaster::assignPrice()
+{
+	setPrice(getDamage() + getAccuracy());
+}
+
 int Blaster::giveDamage()
 {
 	if (getHit()) {
@@ -38,4 +44,10 @@ int Blaster::giveDamage()
 	else {
 		return 0;
 	}
+}
+
+int Blaster::getNewPrice()
+{
+	assignPrice();
+	return getPrice();
 }

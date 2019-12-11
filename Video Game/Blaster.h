@@ -10,11 +10,14 @@ private:
 	bool getHit();
 
 
+
 public:
 	Blaster();
 	double getAccuracy();
-	void setAccuracy(int a);
-	int giveDamage();
+	void setAccuracy(int a), assignPrice();
+	int giveDamage(), getNewPrice();
+	
+
 };
 
 

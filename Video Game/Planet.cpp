@@ -7,11 +7,32 @@ void Planet::addEnemies(int d)
 
 Planet::Planet()
 {
+	//difficulty = 1;
+	//if (difficulty == 1) {
+	//	enemies.push_back(&a1);
+	//	enemies.push_back(&b1);
+	//	enemies.push_back(&c1);
+	//	enemies.push_back(&boss1);
+	//}
+	//else if (difficulty == 2) {
+	//	enemies.push_back(&a1);
+	//	enemies.push_back(&b1);
+	//	enemies.push_back(&c1);
+	//	enemies.push_back(&boss1);
+	//	enemies.push_back(&a2);
+	//	enemies.push_back(&b2);
+	//	enemies.push_back(&c2);
+	//	enemies.push_back(&boss2);
+	//}
+	enemies.push_back(&a1);
+	enemies.push_back(&b1);
+	enemies.push_back(&c1);
+	enemies.push_back(&boss1);
+	enemies.push_back(&a2);
+	enemies.push_back(&b2);
+	enemies.push_back(&c2);
+	enemies.push_back(&boss2);
 
-	enemies.push_back(&a);
-	enemies.push_back(&b);
-	enemies.push_back(&c);
-	enemies.push_back(&boss);
 }
 
 void Planet::setPlanetName(std::string n)
@@ -36,7 +57,7 @@ std::string Planet::getPlanetType()
 
 int Planet::getDifficulty()
 {
-	return 0;
+	return difficulty;
 }
 
 Alien* Planet::getEnemy(int e)
@@ -51,6 +72,7 @@ void Planet::addEnemy(Alien* a)
 
 void Planet::setDifficulty(int d)
 {
+	difficulty = d;
 }
 
 Planet::~Planet()

@@ -2,7 +2,6 @@
 #ifndef SYSTEM_H
 
 #include "Planet.h"
-#include "Forrest.h"
 #include <string>
 #include <vector>
 
@@ -10,12 +9,14 @@ class System {
 private:
 	std::vector<Planet*> planets;
 	int z;
+	int difficulty;
 
 public:
-
-	void addPlanets(Planet* planet);
+	System();
+	void addPlanets(Planet* planet), setDifficulty(int d);
 	Planet* selectPlanet(int i);
-	int getSystemSize();
+	int getSystemSize(), getDifficulty();
+
 	virtual ~System();
 };
 

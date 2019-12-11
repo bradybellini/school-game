@@ -10,7 +10,7 @@
 class Planet {
 private:
 	PlanetName name;
-	Alien a, b, c, boss;
+	Alien a1, b1, c1, boss1, a2, b2, c2, boss2;
 	std::string planetType;
 	int difficulty;
 	std::vector<Alien*> enemies;

@@ -6,11 +6,12 @@
 class Item {
 private:
 	std::string name;
-
+	int price;
 public:
 	Item();
 	std::string getName();
-	void setName(std::string n);
+	int getPrice();
+	void setName(std::string n), setPrice(int p);
 	virtual ~Item();
 };
 
