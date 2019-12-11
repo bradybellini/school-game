@@ -2,9 +2,11 @@
 #ifndef BLASTER_H
 
 #include "Weapons.h"
+#include "BlasterName.h"
 
 class Blaster : public Weapons {
 private:
+	BlasterName name;
 	int accuracy;
 	bool hit = true;
 	bool getHit();
@@ -13,8 +15,9 @@ private:
 
 public:
 	Blaster();
-	double getAccuracy();
-	void setAccuracy(int a), assignPrice();
+	int getAccuracy();
+	std::string getName();
+	void setAccuracy(int a), assignPrice(), setName(std::string n);
 	int giveDamage(), getNewPrice();
 	
 

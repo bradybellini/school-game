@@ -2,12 +2,17 @@
 
 Item::Item()
 {
-	name = "No Name";
+	
 }
 
 std::string Item::getName()
 {
 	return name;
+}
+
+std::string Item::getType()
+{
+	return type;
 }
 
 int Item::getPrice()
@@ -23,6 +28,11 @@ void Item::setName(std::string n)
 void Item::setPrice(int p)
 {
 	price = p;
+}
+
+void Item::setType(std::string t)
+{
+	type = t;
 }
 
 Item::~Item()

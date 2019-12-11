@@ -7,15 +7,11 @@
 
 class Ocean : public Planet {
 private:
-	Mod wet;
-	std::vector<Mod*> mods;
+	Mod wet, no_land;
+
 
 public:
 	Ocean();
-	void addMod(Mod* m);
-	Mod* getMod(int i);
-
-
 };
 
 

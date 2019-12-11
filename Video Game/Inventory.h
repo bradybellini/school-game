@@ -11,7 +11,7 @@ private:
 
 public:
 	Item* getItem(int i);
-	void addItem(Item* i);
+	void addItem(Item* i), removeItem(int i);
 	int getSize();
 };
 

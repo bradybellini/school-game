@@ -7,32 +7,10 @@ void Planet::addEnemies(int d)
 
 Planet::Planet()
 {
-	//difficulty = 1;
-	//if (difficulty == 1) {
-	//	enemies.push_back(&a1);
-	//	enemies.push_back(&b1);
-	//	enemies.push_back(&c1);
-	//	enemies.push_back(&boss1);
-	//}
-	//else if (difficulty == 2) {
-	//	enemies.push_back(&a1);
-	//	enemies.push_back(&b1);
-	//	enemies.push_back(&c1);
-	//	enemies.push_back(&boss1);
-	//	enemies.push_back(&a2);
-	//	enemies.push_back(&b2);
-	//	enemies.push_back(&c2);
-	//	enemies.push_back(&boss2);
-	//}
 	enemies.push_back(&a1);
 	enemies.push_back(&b1);
 	enemies.push_back(&c1);
 	enemies.push_back(&boss1);
-	enemies.push_back(&a2);
-	enemies.push_back(&b2);
-	enemies.push_back(&c2);
-	enemies.push_back(&boss2);
-
 }
 
 void Planet::setPlanetName(std::string n)
@@ -73,6 +51,27 @@ void Planet::addEnemy(Alien* a)
 void Planet::setDifficulty(int d)
 {
 	difficulty = d;
+}
+
+void Planet::addMod(Mod* m)
+{
+	mods.push_back(m);
+}
+
+Mod* Planet::getMod(int i)
+{
+	return mods[i];
+}
+
+bool Planet::aliens_dead()
+{
+	if (enemies[3]->getHealth() == 0) {
+		return true;
+	}
+	else {
+		return false;
+	}
+	
 }
 
 Planet::~Planet()

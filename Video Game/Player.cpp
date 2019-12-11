@@ -3,6 +3,7 @@
 Player::Player()
 {
 	name = "Player";
+	credits = 100;
 
 }
 
@@ -14,6 +15,16 @@ void Player::setName(std::string n)
 void Player::addItem(Item* i)
 {
 	inv.addItem(i);
+}
+
+void Player::removeItem(int i)
+{
+	inv.removeItem(i);
+}
+
+void Player::addCredits(int c)
+{
+	credits += c;
 }
 
 std::string Player::getName()
@@ -29,4 +40,9 @@ Item* Player::getItem(int i)
 int Player::getInvSize()
 {
 	return inv.getSize();
+}
+
+int Player::getCredits()
+{
+	return credits;
 }

@@ -124,11 +124,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Alien.cpp" />
+    <ClCompile Include="Arctic.cpp" />
     <ClCompile Include="Blaster.cpp" />
+    <ClCompile Include="BlasterName.cpp" />
     <ClCompile Include="Character.cpp" />
+    <ClCompile Include="Desert.cpp" />
+    <ClCompile Include="Exo.cpp" />
     <ClCompile Include="Forrest.cpp" />
     <ClCompile Include="Inventory.cpp" />
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="Magma.cpp" />
+    <ClCompile Include="Medkit.cpp" />
     <ClCompile Include="Mod.cpp" />
     <ClCompile Include="Ocean.cpp" />
     <ClCompile Include="Planet.cpp" />
@@ -142,6 +148,7 @@
     <ClInclude Include="Alien.h" />
     <ClInclude Include="Arctic.h" />
     <ClInclude Include="Blaster.h" />
+    <ClInclude Include="BlasterName.h" />
     <ClInclude Include="Character.h" />
     <ClInclude Include="Desert.h" />
     <ClInclude Include="Exo.h" />
@@ -149,6 +156,7 @@
     <ClInclude Include="Inventory.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="Magma.h" />
+    <ClInclude Include="Medkit.h" />
     <ClInclude Include="Mod.h" />
     <ClInclude Include="Ocean.h" />
     <ClInclude Include="Planet.h" />

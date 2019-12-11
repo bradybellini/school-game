@@ -8,8 +8,9 @@
 
 class Magma :public Planet {
 private:
-	Mod extreme_heat, radiation;
-	std::vector<Mod*> mods;
+	Mod ex_heat, radiation;
+public:
+	Magma();
 };
 
 

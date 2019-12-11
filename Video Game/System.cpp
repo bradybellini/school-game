@@ -30,6 +30,24 @@ int System::getDifficulty()
 	return 0;
 }
 
+bool System::isClear(System* s)
+{
+	int h = 0;
+	for (int i = 0; i < s->getSystemSize(); i++) {
+		h = s->selectPlanet(i)->aliens_dead();
+		if (h) {
+			h += 1;
+		}
+	}
+	if (h == 4) {
+		return true;
+	}
+	else {
+		return false;
+	}
+
+}
+
 System::~System()
 {
 }

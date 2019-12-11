@@ -10,13 +10,11 @@
 class Forrest : public Planet {
 private:
 	Mod thick_atmo, o2_rich;
-	std::vector<Mod*> mods;
+
 
 
 public:
 	Forrest();
-	void addMod(Mod* m);
-	Mod* getMod(int i);
 
 
 

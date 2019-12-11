@@ -32,7 +32,7 @@ std::string Mod::getName()
 	return name;
 }
 
-bool Mod::getlivable()
+bool Mod::getLivable()
 {
 	return livable;
 }

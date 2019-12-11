@@ -16,14 +16,20 @@ bool Blaster::getHit()
 Blaster::Blaster()
 {
 	accuracy = 20;
-	setName("Blaster");
+	setName(name.getName());
 	setDamage(10);
+	setType("Blaster");
 
 }
 
-double Blaster::getAccuracy()
+int Blaster::getAccuracy()
 {
 	return accuracy;
+}
+
+std::string Blaster::getName()
+{
+	return name.getName();
 }
 
 void Blaster::setAccuracy(int a)
@@ -34,6 +40,11 @@ void Blaster::setAccuracy(int a)
 void Blaster::assignPrice()
 {
 	setPrice(getDamage() + getAccuracy());
+}
+
+void Blaster::setName(std::string n)
+{
+	name.setName(n);
 }
 
 int Blaster::giveDamage()

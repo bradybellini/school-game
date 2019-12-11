@@ -10,13 +10,14 @@ private:
 	std::vector<Planet*> planets;
 	int z;
 	int difficulty;
+	bool clear = false;
 
 public:
 	System();
 	void addPlanets(Planet* planet), setDifficulty(int d);
 	Planet* selectPlanet(int i);
 	int getSystemSize(), getDifficulty();
-
+	bool isClear(System* s);
 	virtual ~System();
 };
 

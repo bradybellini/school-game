@@ -17,7 +17,7 @@ public:
 	int getMod();
 	void setName(std::string n);
 	std::string getName();
-	bool getlivable();
+	bool getLivable();
 	void setLivable(bool l);
 
 };

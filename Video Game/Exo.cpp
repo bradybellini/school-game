@@ -1,8 +1,8 @@
-#include "Forrest.h"
+#include "Exo.h"
 
-Forrest::Forrest()
+Exo::Exo()
 {
-	setPlanetType("Forrest");
+	setPlanetType("Exo");
 	addMod(&o2_rich);
 	o2_rich.setName("Oxygen Rich");
 	o2_rich.setMod(2);
@@ -11,9 +11,8 @@ Forrest::Forrest()
 	thick_atmo.setName("Thick Atmosphere");
 	thick_atmo.setMod(2);
 	thick_atmo.setLivable(true);
+	food_surplus.setName("Food Surplus");
+	food_surplus.setMod(2);
+	food_surplus.setLivable(true);
+
 }
-
-
-
-
-

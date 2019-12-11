@@ -19,7 +19,7 @@ std::string PlanetName::generateName()
 	for (int i = 0; i < 1; i++) {
 		r = rand() % 99;
 		n = r;
-		Sleep(504);
+		Sleep(1000);
 	}
 
 	for (int i = 0; i < 1; i++) {

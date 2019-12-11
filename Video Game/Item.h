@@ -5,13 +5,14 @@
 
 class Item {
 private:
-	std::string name;
+	std::string name, type;
 	int price;
+
 public:
 	Item();
-	std::string getName();
+	std::string getName(), getType();
 	int getPrice();
-	void setName(std::string n), setPrice(int p);
+	void setName(std::string n), setPrice(int p), setType(std::string t);
 	virtual ~Item();
 };
 

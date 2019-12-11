@@ -2,19 +2,14 @@
 
 Ocean::Ocean()
 {
-	wet.setMod(-2);
+	setPlanetType("Ocean");
+	wet.setMod(-1);
 	wet.setName("Wet");
-	setPlanetName("Ocean");
-	mods.push_back(&wet);
-
+	wet.setLivable(true);
+	addMod(&wet);
+	no_land.setMod(-2);
+	no_land.setName("No Land");
+	no_land.setLivable(false);
+	addMod(&no_land);
 }
 
-void Ocean::addMod(Mod* m)
-{
-	mods.push_back(m);
-}
-
-Mod* Ocean::getMod(int i)
-{
-	return mods[i];
-}
