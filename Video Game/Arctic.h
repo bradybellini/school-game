@@ -13,6 +13,7 @@ private:
 
 public:
 	Arctic();
+	bool livable();
 };
 
 

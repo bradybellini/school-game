@@ -15,9 +15,7 @@ private:
 
 public:
 	Forrest();
-
-
-
+	bool livable();
 };
 
 

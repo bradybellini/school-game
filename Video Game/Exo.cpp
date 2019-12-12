@@ -16,3 +16,8 @@ Exo::Exo()
 	food_surplus.setLivable(true);
 
 }
+
+bool Exo::livable()
+{
+	return true;
+}

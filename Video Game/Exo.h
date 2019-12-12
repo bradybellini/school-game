@@ -12,6 +12,7 @@ private:
 
 public:
 	Exo();
+	bool livable();
 };
 
 

@@ -12,6 +12,7 @@ private:
 
 public:
 	Ocean();
+	bool livable();
 };
 
 

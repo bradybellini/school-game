@@ -12,3 +12,8 @@ Arctic::Arctic()
 	no_food.setLivable(false);
 	addMod(&no_food);
 }
+
+bool Arctic::livable()
+{
+	return false;
+}

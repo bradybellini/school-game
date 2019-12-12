@@ -2,7 +2,6 @@
 
 void Planet::addEnemies(int d)
 {
-
 }
 
 Planet::Planet()
@@ -71,7 +70,11 @@ bool Planet::aliens_dead()
 	else {
 		return false;
 	}
-	
+}
+
+bool Planet::livable()
+{
+	return false;
 }
 
 Planet::~Planet()

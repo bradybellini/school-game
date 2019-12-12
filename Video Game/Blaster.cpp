@@ -15,9 +15,9 @@ bool Blaster::getHit()
 
 Blaster::Blaster()
 {
-	accuracy = 20;
+	accuracy = 9;
 	setName(name.getName());
-	setDamage(10);
+	setDamage(5);
 	setType("Blaster");
 
 }

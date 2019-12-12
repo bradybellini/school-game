@@ -12,6 +12,7 @@ private:
 
 public:
 	Desert();
+	bool livable();
 };
 
 

@@ -13,6 +13,11 @@ Forrest::Forrest()
 	thick_atmo.setLivable(true);
 }
 
+bool Forrest::livable()
+{
+	return true;
+}
+
 
 
 

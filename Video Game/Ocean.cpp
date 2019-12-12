@@ -13,3 +13,8 @@ Ocean::Ocean()
 	addMod(&no_land);
 }
 
+bool Ocean::livable()
+{
+	return false;
+}
+

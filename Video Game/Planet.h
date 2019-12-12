@@ -29,7 +29,7 @@ public:
 	void addEnemy(Alien* a);
 	void addMod(Mod* m);
 	Mod* getMod(int i);
-	bool aliens_dead();
+	bool aliens_dead(), livable();
 	virtual ~Planet();
 };
 

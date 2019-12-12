@@ -11,6 +11,7 @@ private:
 	Mod ex_heat, radiation;
 public:
 	Magma();
+	bool livable();
 };
 
 

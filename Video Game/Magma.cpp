@@ -12,3 +12,8 @@ Magma::Magma()
 	radiation.setLivable(false);
 	addMod(&radiation);
 }
+
+bool Magma::livable()
+{
+	return false;
+}

@@ -12,3 +12,8 @@ Desert::Desert()
 	no_water.setLivable(false);
 	addMod(&no_water);
 }
+
+bool Desert::livable()
+{
+	return false;
+}
