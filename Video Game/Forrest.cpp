@@ -11,14 +11,5 @@ Forrest::Forrest()
 	thick_atmo.setName("Thick Atmosphere");
 	thick_atmo.setMod(2);
 	thick_atmo.setLivable(true);
+	setlivable(true);
 }
-
-bool Forrest::livable()
-{
-	return true;
-}
-
-
-
-
-

@@ -14,10 +14,5 @@ Exo::Exo()
 	food_surplus.setName("Food Surplus");
 	food_surplus.setMod(2);
 	food_surplus.setLivable(true);
-
-}
-
-bool Exo::livable()
-{
-	return true;
+	setlivable(true);
 }

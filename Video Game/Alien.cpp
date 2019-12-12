@@ -15,9 +15,7 @@ Alien::Alien()
 	taunts.push_back("ahhhhh");
 	taunts.push_back("Leave me and my planet alone!");
 	taunts.push_back("Leave me alone, Please?");
-
-
-
+	setAttack(2);
 }
 
 std::string Alien::taunt()

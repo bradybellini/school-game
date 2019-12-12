@@ -15,11 +15,10 @@ bool Blaster::getHit()
 
 Blaster::Blaster()
 {
-	accuracy = 9;
+	accuracy = 10;
 	setName(name.getName());
 	setDamage(5);
 	setType("Blaster");
-
 }
 
 int Blaster::getAccuracy()

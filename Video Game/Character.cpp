@@ -15,6 +15,9 @@ void Character::setHealth(int h)
 void Character::addHealth(int ah)
 {
 	health += ah;
+	if (health >= 25) {
+		health = 25;
+	}
 }
 
 void Character::takeDamage(int t)

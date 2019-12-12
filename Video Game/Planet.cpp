@@ -57,6 +57,11 @@ void Planet::addMod(Mod* m)
 	mods.push_back(m);
 }
 
+void Planet::setlivable(bool liv)
+{
+	islivable = liv;
+}
+
 Mod* Planet::getMod(int i)
 {
 	return mods[i];
@@ -74,7 +79,7 @@ bool Planet::aliens_dead()
 
 bool Planet::livable()
 {
-	return false;
+	return islivable;
 }
 
 Planet::~Planet()

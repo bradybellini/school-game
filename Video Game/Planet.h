@@ -17,8 +17,7 @@ private:
 	std::vector<Alien*> enemies;
 	std::vector<Mod*> mods;
 	void addEnemies(int d);
-
-
+	bool islivable = false;
 
 public:
 	Planet();
@@ -27,7 +26,7 @@ public:
 	int getDifficulty();
 	Alien* getEnemy(int e);
 	void addEnemy(Alien* a);
-	void addMod(Mod* m);
+	void addMod(Mod* m), setlivable(bool liv);
 	Mod* getMod(int i);
 	bool aliens_dead(), livable();
 	virtual ~Planet();

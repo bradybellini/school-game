@@ -161,7 +161,7 @@ int main() {
 
 	difficulty = 1;
 	if (difficulty == 1) {
-		cout << "Generating the Star System..." << endl;
+		cout << "Generating Star System..." << endl;
 		game_easy();
 	}
 	else if (difficulty == 2) {
@@ -221,8 +221,6 @@ void game_easy() {
 	med1.setStack(3);
 	p.addItem(&b1);
 	p.addItem(&med1);
-	
-
 
 	//adding planets to system
 	s_easy.addPlanets(&o2);
@@ -244,6 +242,8 @@ void game_easy() {
 	bool shopping = false;
 	bool checking_inv = false;
 	bool viewing_info = false;
+
+	cout << s_easy.selectPlanet(6)->getEnemy(2)->getHealth() << endl;
 
 	int planet;
 	while (!easy_intro) {
@@ -271,6 +271,92 @@ void game_easy() {
 				}
 				else {
 					planet = 0;
+					attacking = false;
+					on_planet = false;
+					pick_planet = true;
+					break;
+				}
+			case 2:cout << "You have selected " << s_easy.selectPlanet(1)->getPlanetName() << endl;
+				if (s_easy.selectPlanet(1)->aliens_dead()) {
+					cout << "You have already cleared this Planet! Please select another..." << endl;
+					break;
+				}
+				else {
+					planet = 1;
+					attacking = false;
+					on_planet = false;
+					pick_planet = true;
+					break;
+				}
+			case 3:cout << "You have selected " << s_easy.selectPlanet(2)->getPlanetName() << endl;
+				if (s_easy.selectPlanet(2)->aliens_dead()) {
+					cout << "You have already cleared this Planet! Please select another..." << endl;
+					break;
+				}
+				else {
+					planet = 2;
+					attacking = false;
+					on_planet = false;
+					pick_planet = true;
+					break;
+				}
+			case 4:cout << "You have selected " << s_easy.selectPlanet(3)->getPlanetName() << endl;
+				if (s_easy.selectPlanet(3)->aliens_dead()) {
+					cout << "You have already cleared this Planet! Please select another..." << endl;
+					break;
+				}
+				else {
+					planet = 3;
+					attacking = false;
+					on_planet = false;
+					pick_planet = true;
+					break;
+				}
+			case 5:cout << "You have selected " << s_easy.selectPlanet(4)->getPlanetName() << endl;
+				if (s_easy.selectPlanet(4)->aliens_dead()) {
+					cout << "You have already cleared this Planet! Please select another..." << endl;
+					break;
+				}
+				else {
+					planet = 4;
+					attacking = false;
+					on_planet = false;
+					pick_planet = true;
+					break;
+				}
+			case 6:cout << "You have selected " << s_easy.selectPlanet(5)->getPlanetName() << endl;
+				if (s_easy.selectPlanet(5)->aliens_dead()) {
+					cout << "You have already cleared this Planet! Please select another..." << endl;
+					break;
+				}
+				else {
+					planet = 5;
+					attacking = false;
+					on_planet = false;
+					pick_planet = true;
+					break;
+				}
+			case 7:cout << "You have selected " << s_easy.selectPlanet(6)->getPlanetName() << endl;
+				if (s_easy.selectPlanet(6)->aliens_dead()) {
+					cout << "You have already cleared this Planet! Please select another..." << endl;
+					break;
+				}
+				else {
+					planet = 6;
+					attacking = false;
+					on_planet = false;
+					pick_planet = true;
+					break;
+				}
+			case 8:cout << "You have selected " << s_easy.selectPlanet(7)->getPlanetName() << endl;
+				if (s_easy.selectPlanet(7)->aliens_dead()) {
+					cout << "You have already cleared this Planet! Please select another..." << endl;
+					break;
+				}
+				else {
+					planet = 7;
+					attacking = false;
+					on_planet = false;
 					pick_planet = true;
 					break;
 				}
@@ -295,158 +381,306 @@ void game_easy() {
 				attacking = false;
 				pick_planet = true;
 				on_planet = true;
+				break;
+			case 2:
+				attacking = true;
+				checking_inv = false;
+				pick_planet = true;
+				on_planet = true;
+				break;
+			case 3:
+				attacking = true;
+				checking_inv = true;
+				shopping = false;
+				pick_planet = true;
+				on_planet = true;
+				break;
+			case 4:
+				attacking = true;
+				checking_inv = true;
+				shopping = true;
+				viewing_info = false;
+				pick_planet = true;
+				on_planet = true;
+				break;
 			case 5:
+				attacking = true;
+				checking_inv = true;
+				shopping = true;
+				viewing_info = true;
 				pick_planet = false;
 				on_planet = true;
 				break;
 			default:
+				cout << "Please select an option from above" << endl;
 				break;
 			}
-			while (!attacking) {
-				int attacking_enemy = 0;
-				for (int i = 0; i < 4; i++) {
-					if (s_easy.selectPlanet(planet)->getEnemy(i)->getHealth() == 0) {
-						attacking_enemy += 1;
-						p.addCredits(10);
-					}
+		}
+		while (!attacking) {
+			int attacking_enemy = 0;
+			for (int i = 0; i < 4; i++) {
+				if (s_easy.selectPlanet(planet)->getEnemy(i)->getHealth() == 0) {
+					attacking_enemy += 1;
+					p.addCredits(10);
 				}
-				if (attacking_enemy == 4) {
-
-				}
-				cout << "What item would you like to use?" << endl;
-				for (int i = 0; i < p.getInvSize(); i++) {
-					cout << i + 1 << ". " << p.getItem(i)->getType() << ": " << p.getItem(i)->getName() << endl;
-				}
-				int y;
-				int temp_health = 0;
-				cin >> y;
-				switch (y) {
-				case 1:
-					if (Blaster* b_temp = dynamic_cast<Blaster*>(p.getItem(0))) {
-						/*temp_health = s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getHealth();*/
-						if (b_temp->giveDamage() == 0) {
-							cout << "You missed!" << endl;
-							cout << s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getHealth() << endl;
-							cout << temp_health << endl;
-						}
-						else {
-							temp_health = b_temp->giveDamage();
-							s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->takeDamage(temp_health);
-							cout << "You did " << temp_health << " damage!" << endl;
-							cout << "Alien: " << s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->taunt() << endl;
-							cout << s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getHealth() << endl;
-							cout << temp_health << endl;
-							cout << endl;
-							if (s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getHealth() == 0) {
-								cout << "You killed the Alien!" << endl;
-								on_planet = false;
-								shopping = true;
-								checking_inv = true;
-								viewing_info = true;
-								attacking = true;
-								
-							}
-						}
+			}
+			if (attacking_enemy == 4) {
+			}
+			cout << "What item would you like to use?" << endl;
+			for (int i = 0; i < p.getInvSize(); i++) {
+				cout << i + 1 << ". " << p.getItem(i)->getType() << ": " << p.getItem(i)->getName() << endl;
+			}
+			int y;
+			int temp_health = 0;
+			cin >> y;
+			switch (y) {
+			case 1:
+				if (Blaster* b_temp = dynamic_cast<Blaster*>(p.getItem(0))) {
+					cout << "before" << b_temp->giveDamage() << endl;
+					temp_health = b_temp->giveDamage();
+					cout << endl;
+					cout << "after" << b_temp->giveDamage() << endl;
+					if (temp_health == 0) {
+						cout << "You missed!" << endl;
+						p.takeDamage(s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getAttack());
+						cout << "The Alien does " << s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getAttack() << " damage to you!" << endl;
+						cout << "You now have " << p.getHealth() << " health." << endl;
 					}
 					else {
-						if (Medkit* m_temp = dynamic_cast<Medkit*>(p.getItem(0))) {
-							p.addHealth(m_temp->getHeal());
-							cout << "You have been healed " << m_temp->getHeal() << " and now have " << p.getHealth() << " health." << endl;
-							m_temp->setStack(m_temp->getStack() - 1);
-							if (m_temp->getStack() == 0) {
-								p.removeItem(0);
-							}
+						s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->takeDamage(temp_health);
+						cout << "You did " << temp_health << " damage!" << endl;
+						cout << "Alien: " << s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->taunt() << endl;
+						cout << endl;
+						p.takeDamage(s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getAttack());
+						cout << "The Alien does " << s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getAttack() << " damage to you!" << endl;
+						cout << "You now have " << p.getHealth() << " health." << endl;
+						if (s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getHealth() == 0) {
+							cout << "You killed the Alien!" << endl;
+							on_planet = false;
+							shopping = true;
+							checking_inv = true;
+							viewing_info = true;
+							attacking = true;
 						}
 					}
-
-					break;
-				case 2: 
-					if (Blaster * b_temp = dynamic_cast<Blaster*>(p.getItem(0))) {
-						temp_health = s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getHealth();
-						s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->takeDamage(b_temp->giveDamage());
-						if (temp_health - s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getHealth() == 0) {
-							cout << "You missed!" << endl;
-						}
-						else {
-							cout << "You did " << temp_health - s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getHealth() << " damage!" << endl;
-							cout << "Alien: " << s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->taunt() << endl;
-							cout << endl;
-						}
-					}
-					else {
-						if (Medkit * m_temp = dynamic_cast<Medkit*>(p.getItem(0))) {
-							p.addHealth(m_temp->getHeal());
-							cout << "You have been healed " << m_temp->getHeal() << " and now have " << p.getHealth() << " health." << endl;
-							m_temp->setStack(m_temp->getStack() - 1);
-							if (m_temp->getStack() == 0) {
-								p.removeItem(0);
-							}
-						}
-					}
-					if (s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getHealth() == 0) {
-						attacking = true;
-					}
-
-					break;
-				case 3:
-					if (Blaster * b_temp = dynamic_cast<Blaster*>(p.getItem(0))) {
-						temp_health = s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getHealth();
-						s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->takeDamage(b_temp->giveDamage());
-						if (temp_health - s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getHealth() == 0) {
-							cout << "You missed!" << endl;
-						}
-						else {
-							cout << "You did " << temp_health - s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getHealth() << " damage!" << endl;
-							cout << "Alien: " << s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->taunt() << endl;
-							cout << endl;
-						}
-					}
-					else {
-						if (Medkit * m_temp = dynamic_cast<Medkit*>(p.getItem(0))) {
-							p.addHealth(m_temp->getHeal());
-							cout << "You have been healed " << m_temp->getHeal() << " and now have " << p.getHealth() << " health." << endl;
-							m_temp->setStack(m_temp->getStack() - 1);
-							if (m_temp->getStack() == 0) {
-								p.removeItem(0);
-							}
-						}
-					}
-					if (s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getHealth() == 0) {
-						attacking = true;
-					}
-
-					break;
-				default:
-					break;
-				}
-				if (s_easy.selectPlanet(planet)->aliens_dead() && s_easy.selectPlanet(planet)->livable()) {
-					cout << "You have killed all the aliens on this planet and humans can live on this planet!" << endl;
-					cout << "You have won!" << endl;
-					exit(0);
-				}
-				else if (s_easy.selectPlanet(planet)->aliens_dead() && !s_easy.selectPlanet(planet)->livable()) {
-					cout << "You have killed all the Aliens but it is not livable!" << endl;
-					cout << "You will need to choose a different planet!" << endl;
-					pick_planet = false;
-					on_planet = true;
-					shopping = true;
-					checking_inv = true;
-					viewing_info = true;
-					attacking = true;
-					
-
 				}
 				else {
-					cout << "You still have enemies to kill on this planet!" << endl;
+					if (Medkit* m_temp = dynamic_cast<Medkit*>(p.getItem(0))) {
+						p.addHealth(m_temp->getHeal());
+						cout << "You have been healed " << m_temp->getHeal() << " and now have " << p.getHealth() << " health." << endl;
+						m_temp->setStack(m_temp->getStack() - 1);
+						p.takeDamage(s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getAttack());
+						cout << "The Alien does " << s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getAttack() << " damage to you!" << endl;
+						cout << "You now have " << p.getHealth() << " health." << endl;
+						if (m_temp->getStack() == 0) {
+							p.removeItem(0);
+						}
+					}
 				}
-			}
-			while (!shopping) {
-				
-			}
-			while (!checking_inv) {
-			}
 
-			while (!viewing_info) {
+				break;
+			case 2:
+				if (Blaster* b_temp = dynamic_cast<Blaster*>(p.getItem(1))) {
+					cout << "before" << b_temp->giveDamage() << endl;
+					temp_health = b_temp->giveDamage();
+					cout << endl;
+					cout << "after" << b_temp->giveDamage() << endl;
+					if (temp_health == 0) {
+						cout << "You missed!" << endl;
+						p.takeDamage(s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getAttack());
+						cout << "The Alien does " << s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getAttack() << " damage to you!" << endl;
+						cout << "You now have " << p.getHealth() << " health." << endl;
+					}
+					else {
+						s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->takeDamage(temp_health);
+						cout << "You did " << temp_health << " damage!" << endl;
+						cout << "Alien: " << s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->taunt() << endl;
+						cout << endl;
+						p.takeDamage(s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getAttack());
+						cout << "The Alien does " << s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getAttack() << " damage to you!" << endl;
+						cout << "You now have " << p.getHealth() << " health." << endl;
+						if (s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getHealth() == 0) {
+							cout << "You killed the Alien!" << endl;
+							on_planet = false;
+							shopping = true;
+							checking_inv = true;
+							viewing_info = true;
+							attacking = true;
+						}
+					}
+				}
+				else {
+					if (Medkit* m_temp = dynamic_cast<Medkit*>(p.getItem(1))) {
+						p.addHealth(m_temp->getHeal());
+						cout << "You have been healed " << m_temp->getHeal() << " and now have " << p.getHealth() << " health." << endl;
+						m_temp->setStack(m_temp->getStack() - 1);
+						p.takeDamage(s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getAttack());
+						cout << "The Alien does " << s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getAttack() << " damage to you!" << endl;
+						cout << "You now have " << p.getHealth() << " health." << endl;
+						if (m_temp->getStack() == 0) {
+							p.removeItem(1);
+						}
+					}
+				}
+
+				break;
+			case 3:
+				if (Blaster* b_temp = dynamic_cast<Blaster*>(p.getItem(2))) {
+					cout << "before" << b_temp->giveDamage() << endl;
+					temp_health = b_temp->giveDamage();
+					cout << endl;
+					cout << "after" << b_temp->giveDamage() << endl;
+					if (temp_health == 0) {
+						cout << "You missed!" << endl;
+						p.takeDamage(s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getAttack());
+						cout << "The Alien does " << s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getAttack() << " damage to you!" << endl;
+						cout << "You now have " << p.getHealth() << " health." << endl;
+					}
+					else {
+						s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->takeDamage(temp_health);
+						cout << "You did " << temp_health << " damage!" << endl;
+						cout << "Alien: " << s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->taunt() << endl;
+						cout << endl;
+						p.takeDamage(s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getAttack());
+						cout << "The Alien does " << s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getAttack() << " damage to you!" << endl;
+						cout << "You now have " << p.getHealth() << " health." << endl;
+						if (s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getHealth() == 0) {
+							cout << "You killed the Alien!" << endl;
+							on_planet = false;
+							shopping = true;
+							checking_inv = true;
+							viewing_info = true;
+							attacking = true;
+						}
+					}
+				}
+				else {
+					if (Medkit* m_temp = dynamic_cast<Medkit*>(p.getItem(2))) {
+						p.addHealth(m_temp->getHeal());
+						cout << "You have been healed " << m_temp->getHeal() << " and now have " << p.getHealth() << " health." << endl;
+						m_temp->setStack(m_temp->getStack() - 1);
+						p.takeDamage(s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getAttack());
+						cout << "The Alien does " << s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getAttack() << " damage to you!" << endl;
+						cout << "You now have " << p.getHealth() << " health." << endl;
+						if (m_temp->getStack() == 0) {
+							p.removeItem(2);
+						}
+					}
+				}
+
+				break;
+			default:
+				break;
+			}
+			if (p.getHealth() == 0) {
+				cout << "You have died!" << endl << "Make sure to keep an eye on your health next time!" << endl;
+				exit(0);
+			}
+			else if (s_easy.selectPlanet(planet)->aliens_dead() && s_easy.selectPlanet(planet)->livable()) {
+				cout << "You have killed all the aliens on this planet and humans can live on this planet!" << endl;
+				cout << "You have won!" << endl;
+				exit(0);
+			}
+			else if (s_easy.selectPlanet(planet)->aliens_dead() && !s_easy.selectPlanet(planet)->livable()) {
+				cout << "You have killed all the Aliens but it is not livable!" << endl;
+				cout << "You will need to choose a different planet!" << endl;
+				pick_planet = false;
+				on_planet = true;
+				shopping = true;
+				checking_inv = true;
+				viewing_info = true;
+				attacking = true;
+			}
+			else {
+				cout << endl;
+				cout << "You still have enemies to kill on this planet!" << endl;
+				cout << endl;
+			}
+		}
+
+		while (!checking_inv) {
+			for (int i = 0; i < p.getInvSize(); i++) {
+				cout << p.getItem(i)->getName() << endl;
+			}
+			cout << endl;
+			cout << "1. Go back to menu" << endl;
+			int y;
+			cin >> y;
+			switch (y) {
+			case 1:
+				on_planet = false;
+				shopping = true;
+				viewing_info = true;
+				pick_planet = true;
+				checking_inv = true;
+				break;
+			default:
+				cout << "Please press '1' to go back." << endl;
+				break;
+			}
+		}
+
+		while (!shopping) {
+			Medkit shop1;
+			shop1.setHeal(10);
+			shop1.setPrice(10);
+			cout << endl;
+			cout << "Your Credits: " << p.getCredits() << endl;
+			cout << endl;
+			cout << "Items to purchase: " << endl;
+			cout << "1. Medkit: Heals for 5 health | 10 credits" << endl;
+			cout << endl;
+			cout << "2. Go back to menu" << endl;
+			int y;
+			cin >> y;
+			switch (y) {
+			case 1:
+				if (p.getCredits() >= shop1.getPrice()) {
+					p.addCredits(-10);
+					p.addItem(&shop1);
+					cout << "You have bought 1 Medkit!" << endl;
+					cout << "You now have " << p.getCredits() << " Credits." << endl;
+					cout << endl;
+				}
+				else {
+					cout << "You don't have enough credits!" << endl;
+					cout << "Your Credits: " << p.getCredits() << endl;
+				}
+				break;
+
+			case 2:
+				on_planet = false;
+				shopping = true;
+				viewing_info = true;
+				pick_planet = true;
+				shopping = true;
+				break;
+			default:
+				cout << "Please press '1' to go back." << endl;
+				break;
+			}
+		}
+
+		while (!viewing_info) {
+			cout << "About " << p.getName() << endl;
+			cout << "Health: " << p.getHealth() << endl;
+			cout << "Credits: " << p.getCredits() << endl;
+			cout << "Current Planet: " << s_easy.selectPlanet(planet)->getPlanetName() << endl;
+			cout << endl;
+			cout << "1. Go back to menu" << endl;
+			int y;
+			cin >> y;
+			switch (y) {
+			case 1:
+				on_planet = false;
+				shopping = true;
+				viewing_info = true;
+				pick_planet = true;
+				viewing_info = true;
+				break;
+			default:
+				cout << "Please press '1' to go back." << endl;
+				break;
 			}
 		}
 	}
