@@ -1,5 +1,5 @@
 #include "Inventory.h"
-
+#include <iostream>
 Item* Inventory::getItem(int i)
 {
 	return items[i];
@@ -7,7 +7,13 @@ Item* Inventory::getItem(int i)
 
 void Inventory::addItem(Item* i)
 {
-	items.push_back(i);
+	if (items.size() == 3) {
+		std::cout << "Your inventory is full!" << std::endl;
+	}
+	else {
+		items.push_back(i);
+	}
+	
 }
 
 void Inventory::removeItem(int i)

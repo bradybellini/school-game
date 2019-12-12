@@ -1,5 +1,7 @@
-#include <iostream>
+//Brady Bellini
+//I certify this is my own work
 
+#include <iostream>
 #include "Planet.h"
 #include "System.h"
 #include "Forrest.h"
@@ -16,20 +18,17 @@
 #include "Medkit.h"
 #include <string>
 #include <vector>
+#include <fstream>
 
 using namespace std;
 
-void game_easy();
-void game_med();
-void game_hard();
-void load_game();
+void game_easy(bool l);
 void intro();
-int game_over(System* s);
 Player p;
 
 int main() {
+
 	//all variables needed for main
-	///////////////////////////////////
 	bool quit = false;
 	bool bg = false;
 	bool save = false;
@@ -37,31 +36,30 @@ int main() {
 	bool diff = false;
 	bool intro = false;
 	string name;
-	int difficulty;
-	///////////////////////////////////
+	bool load = false;
+	int difficulty = 0;
 
-	//all objects needed for main
-	///////////////////////////////////
-
-	///////////////////////////////////
 
 	int x;
-
+	//load or save game loop
 	while (!save) {
 		cout << "1. Load Game" << endl << "2. New Game" << endl;;
 		cin >> x;
 		switch (x) {
 		case 1: cout << "You have chosen to load a game" << endl;
-			save = true;
+			difficulty = 1;
+			load = false;
 			diff = true;
 			setname = true;
 			intro = true;
+			save = true;
 			break;
 		case 2: cout << "You have chosen to start a new game" << endl;
 			save = true;
 			break;
 		case 3:
 			difficulty = 1;
+			load = true;
 			save = true;
 			diff = true;
 			setname = true;
@@ -72,47 +70,49 @@ int main() {
 	}
 
 	cout << endl;
-
+	//set your character name
 	while (!setname) {
 		cout << "Please enter a name for your character" << endl;
 		cin >> name;
 		p.setName(name);
 		cout << "Hi " << name << ". Let's get started." << endl;
 		cout << endl;
+		difficulty = 1;
 		setname = true;
 	}
 
 	cout << endl;
+	//taken out due to time
 
-	while (!diff) {
-		cout << "Let's choose a difficulty. Make sure to choose carefully, you can't change this unless you start a new game!" << endl;
-		Sleep(200);
-		cout << "1. Easy:" << endl << "   You just want to chill and experience the game." << endl;
-		Sleep(200);
-		cout << "2. Medium:" << endl << "   You have played the game before." << endl;
-		Sleep(200);
-		cout << "3. Hard:" << endl << "   You are on an Esports team for this game." << endl;
-		cin >> x;
-		switch (x) {
-		case 1: cout << "You have chosen Easy, have fun!" << endl;
-			difficulty = 1;
-			diff = true;
-			break;
-		case 2: cout << "You have chosen Medium, good luck!" << endl;
-			difficulty = 2;
-			diff = true;
-			break;
-		case 3: cout << "You have chosen Hard, I hope you survive the first planet..." << endl;
-			difficulty = 3;
-			diff = true;
-			break;
-		default: cout << "Please pick from one of the options above" << endl;
-			break;
-		}
-	}
+	//while (!diff) {
+	//	cout << "Let's choose a difficulty. Make sure to choose carefully, you can't change this unless you start a new game!" << endl;
+	//	Sleep(200);
+	//	cout << "1. Easy:" << endl << "   You just want to chill and experience the game." << endl;
+	//	Sleep(200);
+	//	cout << "2. Medium:" << endl << "   You have played the game before." << endl;
+	//	Sleep(200);
+	//	cout << "3. Hard:" << endl << "   You are on an Esports team for this game." << endl;
+	//	cin >> x;
+	//	switch (x) {
+	//	case 1: cout << "You have chosen Easy, have fun!" << endl;
+	//		
+	//		diff = true;
+	//		break;
+	//	case 2: cout << "You have chosen Medium, good luck!" << endl;
+	//		difficulty = 2;
+	//		diff = true;
+	//		break;
+	//	case 3: cout << "You have chosen Hard, I hope you survive the first planet..." << endl;
+	//		difficulty = 3;
+	//		diff = true;
+	//		break;
+	//	default: cout << "Please pick from one of the options above" << endl;
+	//		break;
+	//	}
+	//}
 
 	cout << endl;
-
+	//intro dialogue
 	while (!intro) {
 		cout << "The Earth has hit it's capcity on green house gases and it will be unlivable in the forseeable future" << endl;
 		Sleep(3000);
@@ -129,6 +129,7 @@ int main() {
 		cin >> x;
 		switch (x) {
 		case 1:
+			load = true;
 			intro = true;
 			break;
 		case 2:
@@ -159,55 +160,22 @@ int main() {
 		}
 	}
 
-	difficulty = 1;
-	if (difficulty == 1) {
-		cout << "Generating Star System..." << endl;
-		game_easy();
-	}
-	else if (difficulty == 2) {
-		game_med();
+	//was used for difficulty, now it just starts the general game loop
+	if (!load) {
+		//I added this line in because I have a sleep in the planet class that is needed to change the seed of random which uses time
+		//makes it seem like something is happening, which it is
+		cout << "Loading Game..." << endl;
+		game_easy(load);
 	}
 	else {
-		game_hard();
+		cout << "Generating Star System..." << endl;
+		game_easy(load);
 	}
-	//cout << b.getNewPrice();
-	//for (int i = 0; i < p.getInvSize(); i++) {
-	//	if (Blaster * b_temp = dynamic_cast<Blaster*>(p.getItem(i))) {
-	//		cout << b_temp->getName() << endl;
-	//	}
-	//	else {
-	//		cout << "did not work" << endl;
-	//	}
-	//}
-	//cout << a.getHealth() << endl;
-	//a.takeDamage(b.giveDamage());
-	//cout << a.getHealth() << endl;
-
-	////cout << f.getMod(0)->getName()<< endl;
-	//s.addPlanets(&f);
-	//s.addPlanets(&o);
-	//s.selectPlanet(0)->getEnemy(3)->takeDamage(b.giveDamage());
-	//cout << s.selectPlanet(0)->getEnemy(3)->getHealth() << endl;
-
-	///*s.selectPlanet(0)->setPlanetName("cool");*/
-	//cout << s.selectPlanet(0)->getPlanetName() << endl;
-	//for (int i = 0; i < s.getSystemSize(); i++) {
-	//	if (Forrest* f_temp = dynamic_cast<Forrest*>(s.selectPlanet(i))) {
-	//		cout << f_temp->getMod(0)->getEn<< endl;
-	//	}
-	//	else if (Ocean* o_temp = dynamic_cast<Ocean*>(s.selectPlanet(i))) {
-	//		cout << o_temp->getMod(0)->getMod() << endl;
-	//	}
-	//	else {
-	//		cout << "did not work" << endl;
-	//	}
-
-	//}
 
 	return 0;
 }
 
-void game_easy() {
+void game_easy(bool l) {
 	//objects needed
 	System s_easy;
 	Forrest f1;
@@ -217,10 +185,11 @@ void game_easy() {
 	Arctic a1;
 	Ocean o1, o2;
 	Blaster b1;
-	Medkit med1;
+	Medkit med1, med2;
 	med1.setStack(3);
 	p.addItem(&b1);
 	p.addItem(&med1);
+	med2.setName("Medkit Shop");
 
 	//adding planets to system
 	s_easy.addPlanets(&o2);
@@ -232,6 +201,9 @@ void game_easy() {
 	s_easy.addPlanets(&exo1);
 	s_easy.addPlanets(&a1);
 
+
+
+	//booleans needed for traversing the "While loop tree"
 	bool easy_intro = false;
 	bool pick_planet = false;
 	bool fight = false;
@@ -242,25 +214,82 @@ void game_easy() {
 	bool shopping = false;
 	bool checking_inv = false;
 	bool viewing_info = false;
+	bool save_game = false;
 
-	cout << s_easy.selectPlanet(6)->getEnemy(2)->getHealth() << endl;
+	//load game
+	while (!l) {
+
+		ifstream fin("save_data.dat");
+
+		if (!fin) {
+			cout << endl;
+			cerr << "Save File not found!" << endl;
+			cout << endl;
+			l = true;
+			main();
+		}
+
+		string pname, i_type, p_name;
+		int credits, health;
+		bool a_dead;
+		
+		fin >> pname;
+		p.setName(pname);
+		fin >> credits;
+		p.addCredits(credits - 40);
+		fin >> health;
+		p.setHealth(health);
+
+		for (int i = 0; i < 8; i++) {
+			fin >> p_name;
+			s_easy.selectPlanet(i)->setPlanetName(p_name);
+			fin >> a_dead;
+			if (a_dead) {
+				s_easy.selectPlanet(i)->getEnemy(3)->setHealth(0);
+			}
+			
+		}
+		while (fin >> i_type) {
+			if (i_type == "Blaster") {
+				p.getItem(0)->setType("Blaster");
+			}
+			else {
+				med1.setStack(1);
+				p.addItem(&med1);
+			}
+		}
+
+
+
+
+		fin.close();
+		easy_intro = true;
+		l = true;
+	}
 
 	int planet;
+	//intro after you make a character
 	while (!easy_intro) {
 		/*intro();*/
 		cout << "Generating Planets..." << endl;
 		cout << endl;
 		easy_intro = true;
 	}
+	//The general game loop
 	while (!game_loop) {
+		//loop to pick a planet to go to first
 		while (!pick_planet) {
 			Sleep(2000);
 			cout << endl;
+			//for pikcing the planet, it assigns the position of the planet chosen in the system vector to the planet variable so it can be
+			//referenced later on and used in other places
 			cout << "Please select the Planet you would like to visit." << endl;
 			for (int i = 0; i < s_easy.getSystemSize(); i++) {
 				cout << i + 1 << ". " << s_easy.selectPlanet(i)->getPlanetName() << endl;
 			}
 			int y;
+			//this also checks to see if you have killed all of the aliens on the planet, and if it is not livable and all aliens have
+			//been killed, it wont let you go back because there is nothing to do there.
 			cin >> y;
 			switch (y)
 			{
@@ -365,6 +394,10 @@ void game_easy() {
 				break;
 			}
 		}
+		//options to pick when you are on the planet
+		//this is like the "player" menu. I have been using like a tree of while loops that can be turned "on" or "off" to
+		//traverse thru the different menus. I wasnt quite sure of how I could have done this a different way, but things were kinda
+		//unnecessarily complex with the whole planet system, but I wanted to try and go thru with it anyway as it seemed like a more fun challenge
 		while (!on_planet) {
 			cout << "You encounter an Alien, what would you like to do?" << endl;
 			cout << "1. Attack" << endl;
@@ -411,21 +444,35 @@ void game_easy() {
 				pick_planet = false;
 				on_planet = true;
 				break;
+			case 6:
+				attacking = true;
+				checking_inv = true;
+				shopping = true;
+				viewing_info = true;
+				save_game = false;
+				pick_planet = true;
+				on_planet = true;
+				break;
 			default:
 				cout << "Please select an option from above" << endl;
 				break;
 			}
 		}
+		//loop for when you are attacking an enemy 
+		//this is where the bulk of the logic and everything happens. A lot of checks need to take place in order to make sure everything
+		//functions how it is intended to. I'm sure this could be simplified quite a bit, but it works and I am going to roll with it
 		while (!attacking) {
 			int attacking_enemy = 0;
+			//add money everytime you kill an enemy and counts how many enemies you have killed. When attacking_enemy equals 4, you
+			//have killed all the aliens on the planet.
 			for (int i = 0; i < 4; i++) {
 				if (s_easy.selectPlanet(planet)->getEnemy(i)->getHealth() == 0) {
 					attacking_enemy += 1;
 					p.addCredits(10);
 				}
 			}
-			if (attacking_enemy == 4) {
-			}
+			//if (attacking_enemy == 4) {
+			//}
 			cout << "What item would you like to use?" << endl;
 			for (int i = 0; i < p.getInvSize(); i++) {
 				cout << i + 1 << ". " << p.getItem(i)->getType() << ": " << p.getItem(i)->getName() << endl;
@@ -435,6 +482,8 @@ void game_easy() {
 			cin >> y;
 			switch (y) {
 			case 1:
+				//some of this could have probably been moved into the classes cpp file, but I feel like I moved as much as I can into it for now
+				//This checks for a miss, how much damage you do, how much health you and the alien have, and logic for using the medkit.
 				if (Blaster* b_temp = dynamic_cast<Blaster*>(p.getItem(0))) {
 					cout << "before" << b_temp->giveDamage() << endl;
 					temp_health = b_temp->giveDamage();
@@ -572,6 +621,8 @@ void game_easy() {
 			default:
 				break;
 			}
+			//this is the logic for winning, losing, and killing all aliens on a planet that is not livable
+			//aliens_dead check if a planet has any living aliens on it( aliens with health that doesnt equal 0)
 			if (p.getHealth() == 0) {
 				cout << "You have died!" << endl << "Make sure to keep an eye on your health next time!" << endl;
 				exit(0);
@@ -597,10 +648,11 @@ void game_easy() {
 				cout << endl;
 			}
 		}
-
+		//loop to check your inventory outside of combat
 		while (!checking_inv) {
+			//just list everything that the player has in their inventory
 			for (int i = 0; i < p.getInvSize(); i++) {
-				cout << p.getItem(i)->getName() << endl;
+				cout << p.getItem(i)->getType() << endl;
 			}
 			cout << endl;
 			cout << "1. Go back to menu" << endl;
@@ -612,6 +664,7 @@ void game_easy() {
 				shopping = true;
 				viewing_info = true;
 				pick_planet = true;
+				save_game = true;
 				checking_inv = true;
 				break;
 			default:
@@ -619,26 +672,34 @@ void game_easy() {
 				break;
 			}
 		}
-
+		//loop to visit the shop
 		while (!shopping) {
-			Medkit shop1;
-			shop1.setHeal(10);
-			shop1.setPrice(10);
+			//When first making the shop, I had some problems when instantiating and object here and then adding it to the players inventory
+			//The item created was added, but it wouldnt work when trying to use it. Im not quite sure what caused it, but when I created the
+			//object at the beggining of this function when I create the others, it seems to work. It is a lot simplier that I planned, but it works
 			cout << endl;
 			cout << "Your Credits: " << p.getCredits() << endl;
 			cout << endl;
 			cout << "Items to purchase: " << endl;
-			cout << "1. Medkit: Heals for 5 health | 10 credits" << endl;
+			cout << "1. 3 Medkits: Heals for 5 health | 50 credits" << endl;
 			cout << endl;
 			cout << "2. Go back to menu" << endl;
 			int y;
 			cin >> y;
+
 			switch (y) {
 			case 1:
-				if (p.getCredits() >= shop1.getPrice()) {
-					p.addCredits(-10);
-					p.addItem(&shop1);
-					cout << "You have bought 1 Medkit!" << endl;
+				if (p.getCredits() >= med2.getPrice()) {
+					for (int i = 0; i < p.getInvSize(); i++) {
+						if (p.getItem(i)->getType() == "Medkit") {
+							if (Medkit * m_temp = dynamic_cast<Medkit*>(p.getItem(i))) {
+								m_temp->setStack(m_temp->getStack() + med1.getStack());
+
+							}
+						}
+					}
+					p.addCredits(-50);
+					cout << "You have bought 3 Medkits!" << endl;
 					cout << "You now have " << p.getCredits() << " Credits." << endl;
 					cout << endl;
 				}
@@ -653,6 +714,7 @@ void game_easy() {
 				shopping = true;
 				viewing_info = true;
 				pick_planet = true;
+				save_game = true;
 				shopping = true;
 				break;
 			default:
@@ -660,8 +722,9 @@ void game_easy() {
 				break;
 			}
 		}
-
+		//loop to view basic character info
 		while (!viewing_info) {
+			//just lists all things that are related to the player and some other general info.
 			cout << "About " << p.getName() << endl;
 			cout << "Health: " << p.getHealth() << endl;
 			cout << "Credits: " << p.getCredits() << endl;
@@ -676,6 +739,7 @@ void game_easy() {
 				shopping = true;
 				viewing_info = true;
 				pick_planet = true;
+				save_game = true;
 				viewing_info = true;
 				break;
 			default:
@@ -683,14 +747,37 @@ void game_easy() {
 				break;
 			}
 		}
+		//save the game
+		while (!save_game) {
+			ofstream out("save_data.dat");
+			out << p.getName() << endl;
+			out << p.getCredits() << endl;
+			out << p.getHealth() << endl;
+			for (int i = 0; i < s_easy.getSystemSize(); i++) {
+				out << s_easy.selectPlanet(i)->getPlanetName() << endl;
+				out << s_easy.selectPlanet(i)->aliens_dead() << endl;
+			}
+
+			for (int i = 0; i < p.getInvSize(); i++) {
+				out << p.getItem(i)->getType() << endl;
+				out << p.getItem(i)->getName() << endl;
+			}
+
+			out.close();
+			cout << endl;
+			cout << "Your game has been saved." << endl;
+			cout << endl;
+			on_planet = false;
+			shopping = true;
+			viewing_info = true;
+			pick_planet = true;
+			viewing_info = true;
+			save_game = true;
+			break;
+		}
 	}
 }
 
-void game_med() {
-}
-
-void game_hard() {
-}
 
 void intro() {
 	cout << "As stated before, in order to win you need to find a planet that is suitable for humanity and kill all aliens on the planet. " << endl;
@@ -703,13 +790,3 @@ void intro() {
 	Sleep(5000);
 	cout << "Now, let’s choose your first planet to visit." << endl;
 }
-
-//int game_over(System* s)
-//{
-//	if (s->selectPlanet)
-//	if (p.getHealth() == 0) {
-//		return 1;
-//	}
-//	else if{}
-//
-//}

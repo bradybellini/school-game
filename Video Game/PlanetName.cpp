@@ -12,7 +12,7 @@ std::string PlanetName::generateName()
 	int n;
 	std::string greekletter;
 
-	std::string greek[10] = { " ALPHA", " BETA", " GAMMA", " DELTA", " ZETA", " THETA", " KAPPA", " MU", " PHI", " OMEGA" };
+	std::string greek[10] = { "ALPHA", "BETA", "GAMMA", "DELTA", "ZETA", "THETA", "KAPPA", "MU", "PHI", "OMEGA" };
 
 	srand(time(NULL));
 

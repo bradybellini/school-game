@@ -3,7 +3,7 @@
 Player::Player()
 {
 	name = "Player";
-	credits = 100;
+	credits = 40;
 
 }
 
