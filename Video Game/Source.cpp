@@ -43,10 +43,11 @@ int main() {
 	int x;
 	//load or save game loop
 	while (!save) {
+		cout << "Welcome Human!" << endl;
 		cout << "1. Load Game" << endl << "2. New Game" << endl;;
 		cin >> x;
 		switch (x) {
-		case 1: cout << "You have chosen to load a game" << endl;
+		case 1: cout << "You have chosen to load a game." << endl;
 			difficulty = 1;
 			load = false;
 			diff = true;
@@ -54,16 +55,8 @@ int main() {
 			intro = true;
 			save = true;
 			break;
-		case 2: cout << "You have chosen to start a new game" << endl;
+		case 2: cout << "You have chosen to start a new game." << endl;
 			save = true;
-			break;
-		case 3:
-			difficulty = 1;
-			load = true;
-			save = true;
-			diff = true;
-			setname = true;
-			intro = true;
 			break;
 		default: cout << "Please pick from the options above" << endl;
 		}
@@ -72,7 +65,7 @@ int main() {
 	cout << endl;
 	//set your character name
 	while (!setname) {
-		cout << "Please enter a name for your character" << endl;
+		cout << "Please enter a name for your character:" << endl;
 		cin >> name;
 		p.setName(name);
 		cout << "Hi " << name << ". Let's get started." << endl;
@@ -114,11 +107,11 @@ int main() {
 	cout << endl;
 	//intro dialogue
 	while (!intro) {
-		cout << "The Earth has hit it's capcity on green house gases and it will be unlivable in the forseeable future" << endl;
+		cout << "The Earth has hit its capacity on greenhouse gases and soon, humans will not be able to live here on earth." << endl;
 		Sleep(3000);
 		cout << "You have been tasked with finding a planet that humanity can move to and continue to live." << endl;
 		Sleep(3000);
-		cout << "Once you find a planet that is livable, you must then kill all enemies on the planet" << endl;
+		cout << "Once you find a planet that humans can live on, you must then kill all enemies on that planet." << endl;
 		Sleep(3000);
 		cout << "If you die you lose..." << endl;
 		Sleep(3000);
@@ -137,23 +130,26 @@ int main() {
 			Sleep(4500);
 			cout << "That last human on earth died 5 years ago..." << endl;
 			Sleep(4500);
-			cout << "After human extinction the only species to thrive were..." << endl;
-			Sleep(5000);
+			cout << "After human extinction the only species to survive and thrive were..." << endl;
+			Sleep(6000);
 			cout << "Koala's?" << endl;
-			Sleep(3000);
-			cout << "The Koala's grow strong over time, killing any other animal or living thing in its way" << endl;
-			Sleep(3000);
-			cout << "Thousands of years pass and the Koala's have evolved to be smart and think for themselves" << endl;
-			Sleep(3000);
-			cout << "One day when on an expedition to try and uncover what species thrived on this planet before the Koala's.." << endl;
-			Sleep(3000);
+			Sleep(4000);
+			cout << "The Koala's grow strong over time, killing any other animal and living thing in its way." << endl;
+			Sleep(4000);
+			cout << "Thousands of years pass and the Koala's have evolved to be smart and think for themselves, creating colonies and structured government." << endl;
+			Sleep(4000);
+			cout << "One day when on an expedition to try and uncover what species thrived on this planet before the Koala's..." << endl;
+			Sleep(4000);
 			cout << "They uncover this 'human' looking thing." << endl;
-			Sleep(3000);
-			cout << "With their curiosity now sparked, the Koala's think they can bring this 'human' back to life" << endl;
-			Sleep(3000);
-			cout << "After many years of research, they think they managed to create a mixture to bring the human back to life" << endl;
-			Sleep(3000);
-			cout << "They inject it in the human...and it wakes up..." << endl;
+			Sleep(4000);
+			cout << "With their curiosity now sparked, the Koala's think they can bring this 'human' back to life." << endl;
+			Sleep(4000);
+			cout << "After many years of research, they think they managed to create a mixture to bring the 'human' back to life." << endl;
+			Sleep(4000);
+			cout << "They inject it in the human...and..." << endl;
+			Sleep(4000);
+			cout << "The 'human' wakes up..." << endl;
+			Sleep(6000);
 			main();
 		default: cout << "Please pick from one of the options above" << endl;
 			break;
@@ -169,6 +165,7 @@ int main() {
 	}
 	else {
 		cout << "Generating Star System..." << endl;
+
 		game_easy(load);
 	}
 
@@ -185,11 +182,12 @@ void game_easy(bool l) {
 	Arctic a1;
 	Ocean o1, o2;
 	Blaster b1;
-	Medkit med1, med2;
+	Medkit med1;
 	med1.setStack(3);
+	med1.setPrice(10);
 	p.addItem(&b1);
 	p.addItem(&med1);
-	med2.setName("Medkit Shop");
+
 
 	//adding planets to system
 	s_easy.addPlanets(&o2);
@@ -270,8 +268,10 @@ void game_easy(bool l) {
 	int planet;
 	//intro after you make a character
 	while (!easy_intro) {
-		/*intro();*/
+		Sleep(1000);
 		cout << "Generating Planets..." << endl;
+		Sleep(2000);
+		intro();
 		cout << endl;
 		easy_intro = true;
 	}
@@ -468,11 +468,9 @@ void game_easy(bool l) {
 			for (int i = 0; i < 4; i++) {
 				if (s_easy.selectPlanet(planet)->getEnemy(i)->getHealth() == 0) {
 					attacking_enemy += 1;
-					p.addCredits(10);
+					
 				}
 			}
-			//if (attacking_enemy == 4) {
-			//}
 			cout << "What item would you like to use?" << endl;
 			for (int i = 0; i < p.getInvSize(); i++) {
 				cout << i + 1 << ". " << p.getItem(i)->getType() << ": " << p.getItem(i)->getName() << endl;
@@ -485,10 +483,8 @@ void game_easy(bool l) {
 				//some of this could have probably been moved into the classes cpp file, but I feel like I moved as much as I can into it for now
 				//This checks for a miss, how much damage you do, how much health you and the alien have, and logic for using the medkit.
 				if (Blaster* b_temp = dynamic_cast<Blaster*>(p.getItem(0))) {
-					cout << "before" << b_temp->giveDamage() << endl;
 					temp_health = b_temp->giveDamage();
 					cout << endl;
-					cout << "after" << b_temp->giveDamage() << endl;
 					if (temp_health == 0) {
 						cout << "You missed!" << endl;
 						p.takeDamage(s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getAttack());
@@ -530,10 +526,8 @@ void game_easy(bool l) {
 				break;
 			case 2:
 				if (Blaster* b_temp = dynamic_cast<Blaster*>(p.getItem(1))) {
-					cout << "before" << b_temp->giveDamage() << endl;
 					temp_health = b_temp->giveDamage();
 					cout << endl;
-					cout << "after" << b_temp->giveDamage() << endl;
 					if (temp_health == 0) {
 						cout << "You missed!" << endl;
 						p.takeDamage(s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getAttack());
@@ -575,10 +569,8 @@ void game_easy(bool l) {
 				break;
 			case 3:
 				if (Blaster* b_temp = dynamic_cast<Blaster*>(p.getItem(2))) {
-					cout << "before" << b_temp->giveDamage() << endl;
 					temp_health = b_temp->giveDamage();
 					cout << endl;
-					cout << "after" << b_temp->giveDamage() << endl;
 					if (temp_health == 0) {
 						cout << "You missed!" << endl;
 						p.takeDamage(s_easy.selectPlanet(planet)->getEnemy(attacking_enemy)->getAttack());
@@ -618,7 +610,7 @@ void game_easy(bool l) {
 				}
 
 				break;
-			default:
+			default: cout << "Please choose from one of the options above" << endl;
 				break;
 			}
 			//this is the logic for winning, losing, and killing all aliens on a planet that is not livable
@@ -643,6 +635,7 @@ void game_easy(bool l) {
 				attacking = true;
 			}
 			else {
+				p.addCredits(10);
 				cout << endl;
 				cout << "You still have enemies to kill on this planet!" << endl;
 				cout << endl;
@@ -689,7 +682,7 @@ void game_easy(bool l) {
 
 			switch (y) {
 			case 1:
-				if (p.getCredits() >= med2.getPrice()) {
+				if (p.getCredits() >= med1.getPrice()) {
 					for (int i = 0; i < p.getInvSize(); i++) {
 						if (p.getItem(i)->getType() == "Medkit") {
 							if (Medkit * m_temp = dynamic_cast<Medkit*>(p.getItem(i))) {
@@ -697,8 +690,11 @@ void game_easy(bool l) {
 
 							}
 						}
+						else {
+							p.addItem(&med1);
+						}
 					}
-					p.addCredits(-50);
+					p.addCredits(-10);
 					cout << "You have bought 3 Medkits!" << endl;
 					cout << "You now have " << p.getCredits() << " Credits." << endl;
 					cout << endl;
@@ -718,7 +714,7 @@ void game_easy(bool l) {
 				shopping = true;
 				break;
 			default:
-				cout << "Please press '1' to go back." << endl;
+				cout << "Please press '2' to go back." << endl;
 				break;
 			}
 		}
@@ -780,13 +776,9 @@ void game_easy(bool l) {
 
 
 void intro() {
-	cout << "As stated before, in order to win you need to find a planet that is suitable for humanity and kill all aliens on the planet. " << endl;
-	Sleep(4000);
-	cout << "You can use your best judgement, or you can kill some aliens to buy items that will help you find a suitable planet faster. " << endl;
-	Sleep(6000);
-	cout << "Each planet has some attributes to it that define whether humans can live on it or not. For example, Oxygen Rich would probably be pretty good, but Extreme Cold probably won’t be suitable." << endl;
-	Sleep(6000);
-	cout << "You won’t know what attributes planets have until you visit them, but again you can get items that can help you with that. " << endl;
+	cout << endl;
+	cout << "As stated before, in order to win, you need to find a planet that is suitable for humanity and kill all aliens on that planet. " << endl;
 	Sleep(5000);
+	cout << endl;
 	cout << "Now, let’s choose your first planet to visit." << endl;
 }
